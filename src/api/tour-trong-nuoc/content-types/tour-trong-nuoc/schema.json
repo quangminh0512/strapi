@@ -1,0 +1,64 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tour_trong_nuocs",
+  "info": {
+    "singularName": "tour-trong-nuoc",
+    "pluralName": "tour-trong-nuocs",
+    "displayName": "Tour Trong Nước",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "TourName": {
+      "type": "string"
+    },
+    "TourDescription": {
+      "type": "text"
+    },
+    "TourImage": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "TourContent": {
+      "type": "text"
+    },
+    "TourPrice": {
+      "type": "biginteger"
+    },
+    "TourIncluded": {
+      "type": "text"
+    },
+    "TourNotIncluded": {
+      "type": "text"
+    },
+    "TourNote": {
+      "type": "text"
+    },
+    "TourAvatar": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Content": {
+      "type": "blocks"
+    },
+    "test001": {
+      "type": "customField",
+      "options": {
+        "output": "HTML",
+        "preset": "rich"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
+    }
+  }
+}

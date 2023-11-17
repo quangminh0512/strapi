@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tour_ngoai_nuocs",
+  "info": {
+    "singularName": "tour-ngoai-nuoc",
+    "pluralName": "tour-ngoai-nuocs",
+    "displayName": "Tour Ngoài Nước"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "TourName": {
+      "type": "string"
+    }
+  }
+}
