@@ -4,7 +4,8 @@
   "info": {
     "singularName": "tour-ngoai-nuoc",
     "pluralName": "tour-ngoai-nuocs",
-    "displayName": "Tour Ngoài Nước"
+    "displayName": "Tour Ngoài Nước",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -13,6 +14,14 @@
   "attributes": {
     "TourName": {
       "type": "string"
+    },
+    "Test01": {
+      "type": "customField",
+      "options": {
+        "output": "HTML",
+        "preset": "rich"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
     }
   }
 }

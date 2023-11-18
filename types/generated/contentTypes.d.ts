@@ -719,12 +719,21 @@ export interface ApiTourNgoaiNuocTourNgoaiNuoc extends Schema.CollectionType {
     singularName: 'tour-ngoai-nuoc';
     pluralName: 'tour-ngoai-nuocs';
     displayName: 'Tour Ngo\u00E0i N\u01B0\u1EDBc';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     TourName: Attribute.String;
+    Test01: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'HTML';
+          preset: 'rich';
+        }
+      >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -756,16 +765,10 @@ export interface ApiTourTrongNuocTourTrongNuoc extends Schema.CollectionType {
   };
   attributes: {
     TourName: Attribute.String;
-    TourDescription: Attribute.Text;
     TourImage: Attribute.Media;
-    TourContent: Attribute.Text;
     TourPrice: Attribute.BigInteger;
-    TourIncluded: Attribute.Text;
-    TourNotIncluded: Attribute.Text;
-    TourNote: Attribute.Text;
     TourAvatar: Attribute.Media;
-    Content: Attribute.Blocks;
-    test001: Attribute.RichText &
+    TourContent: Attribute.RichText &
       Attribute.CustomField<
         'plugin::ckeditor.CKEditor',
         {
@@ -773,6 +776,44 @@ export interface ApiTourTrongNuocTourTrongNuoc extends Schema.CollectionType {
           preset: 'rich';
         }
       >;
+    TourDescription: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'HTML';
+          preset: 'light';
+        }
+      >;
+    TourNote: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'HTML';
+          preset: 'rich';
+        }
+      >;
+    TourDetail: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'HTML';
+          preset: 'rich';
+        }
+      >;
+    Departure: Attribute.Date;
+    Vehicle: Attribute.Enumeration<
+      [
+        'Xe \u00F4 t\u00F4',
+        'M\u00E1y Bay',
+        'Xe 16 ch\u1ED7',
+        'Xe 45 ch\u1ED7',
+        'Du thuy\u1EC1n'
+      ]
+    > &
+      Attribute.DefaultTo<'Xe \u00F4 t\u00F4'>;
+    Duration: Attribute.String;
+    StartingPosition: Attribute.String;
+    Airlines: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

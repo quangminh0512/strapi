@@ -15,9 +15,6 @@
     "TourName": {
       "type": "string"
     },
-    "TourDescription": {
-      "type": "text"
-    },
     "TourImage": {
       "type": "media",
       "multiple": true,
@@ -26,20 +23,8 @@
         "images"
       ]
     },
-    "TourContent": {
-      "type": "text"
-    },
     "TourPrice": {
       "type": "biginteger"
-    },
-    "TourIncluded": {
-      "type": "text"
-    },
-    "TourNotIncluded": {
-      "type": "text"
-    },
-    "TourNote": {
-      "type": "text"
     },
     "TourAvatar": {
       "type": "media",
@@ -49,16 +34,60 @@
         "images"
       ]
     },
-    "Content": {
-      "type": "blocks"
-    },
-    "test001": {
+    "TourContent": {
       "type": "customField",
       "options": {
         "output": "HTML",
         "preset": "rich"
       },
       "customField": "plugin::ckeditor.CKEditor"
+    },
+    "TourDescription": {
+      "type": "customField",
+      "options": {
+        "output": "HTML",
+        "preset": "light"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
+    },
+    "TourNote": {
+      "type": "customField",
+      "options": {
+        "output": "HTML",
+        "preset": "rich"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
+    },
+    "TourDetail": {
+      "type": "customField",
+      "options": {
+        "output": "HTML",
+        "preset": "rich"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
+    },
+    "Departure": {
+      "type": "date"
+    },
+    "Vehicle": {
+      "type": "enumeration",
+      "enum": [
+        "Xe ô tô",
+        "Máy Bay",
+        "Xe 16 chỗ",
+        "Xe 45 chỗ",
+        "Du thuyền"
+      ],
+      "default": "Xe ô tô"
+    },
+    "Duration": {
+      "type": "string"
+    },
+    "StartingPosition": {
+      "type": "string"
+    },
+    "Airlines": {
+      "type": "string"
     }
   }
 }
