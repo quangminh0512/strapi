@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "blogs",
+  "collectionName": "tu_van_visas",
   "info": {
-    "singularName": "blog",
-    "pluralName": "blogs",
-    "displayName": "Blog",
+    "singularName": "tu-van-visa",
+    "pluralName": "tu-van-visas",
+    "displayName": "Tư Vấn Visa",
     "description": ""
   },
   "options": {
@@ -32,11 +32,12 @@
       "customField": "plugin::ckeditor.CKEditor"
     },
     "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     }
   }
 }

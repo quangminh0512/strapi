@@ -690,25 +690,52 @@ export interface ApiBlogBlog extends Schema.CollectionType {
   };
   attributes: {
     Title: Attribute.String;
-    Description: Attribute.String;
-    Content: Attribute.Text;
-    BlogImage: Attribute.Media;
-    test: Attribute.Blocks;
-    test1: Attribute.RichText;
-    Test01: Attribute.RichText &
+    Content: Attribute.RichText &
       Attribute.CustomField<
         'plugin::ckeditor.CKEditor',
         {
-          output: 'Markdown';
+          output: 'HTML';
+          preset: 'rich';
+        }
+      >;
+    Description: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'HTML';
           preset: 'light';
         }
       >;
+    Image: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<'api::blog.blog', 'oneToOne', 'admin::user'> &
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::blog.blog', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTestTest extends Schema.CollectionType {
+  collectionName: 'tests';
+  info: {
+    singularName: 'test';
+    pluralName: 'tests';
+    displayName: 'Test';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Name: Attribute.String;
+    Content: Attribute.Blocks;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::test.test', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::test.test', 'oneToOne', 'admin::user'> &
       Attribute.Private;
   };
 }
@@ -726,7 +753,10 @@ export interface ApiTourNgoaiNuocTourNgoaiNuoc extends Schema.CollectionType {
   };
   attributes: {
     TourName: Attribute.String;
-    Test01: Attribute.RichText &
+    TourImage: Attribute.Media;
+    TourPrice: Attribute.BigInteger;
+    TourAvatar: Attribute.Media;
+    TourContent: Attribute.RichText &
       Attribute.CustomField<
         'plugin::ckeditor.CKEditor',
         {
@@ -734,6 +764,43 @@ export interface ApiTourNgoaiNuocTourNgoaiNuoc extends Schema.CollectionType {
           preset: 'rich';
         }
       >;
+    TourDescription: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'HTML';
+          preset: 'light';
+        }
+      >;
+    TourNote: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'HTML';
+          preset: 'rich';
+        }
+      >;
+    TourDetail: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'HTML';
+          preset: 'rich';
+        }
+      >;
+    Departure: Attribute.Date;
+    Vehicle: Attribute.Enumeration<
+      [
+        'Xe \u00F4 t\u00F4',
+        'M\u00E1y Bay',
+        'Xe 16 ch\u1ED7',
+        'Xe 45 ch\u1ED7',
+        'Du thuy\u1EC1n'
+      ]
+    >;
+    Duration: Attribute.String;
+    StartingPosition: Attribute.String;
+    Airlines: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -832,6 +899,54 @@ export interface ApiTourTrongNuocTourTrongNuoc extends Schema.CollectionType {
   };
 }
 
+export interface ApiTuVanVisaTuVanVisa extends Schema.CollectionType {
+  collectionName: 'tu_van_visas';
+  info: {
+    singularName: 'tu-van-visa';
+    pluralName: 'tu-van-visas';
+    displayName: 'T\u01B0 V\u1EA5n Visa';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String;
+    Content: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'HTML';
+          preset: 'rich';
+        }
+      >;
+    Description: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'HTML';
+          preset: 'light';
+        }
+      >;
+    Image: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::tu-van-visa.tu-van-visa',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::tu-van-visa.tu-van-visa',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -849,8 +964,10 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::blog.blog': ApiBlogBlog;
+      'api::test.test': ApiTestTest;
       'api::tour-ngoai-nuoc.tour-ngoai-nuoc': ApiTourNgoaiNuocTourNgoaiNuoc;
       'api::tour-trong-nuoc.tour-trong-nuoc': ApiTourTrongNuocTourTrongNuoc;
+      'api::tu-van-visa.tu-van-visa': ApiTuVanVisaTuVanVisa;
     }
   }
 }
